@@ -1,5 +1,4 @@
 <?php
-//bot version 0.5 12 Nov 2016
 $access_token = 'P3avdIxyxnYbA4xJmyGCWyD2zg5Yi785QZIKdXNajsJV/t8zQKRqfLus2MmwarjTq8jUlLtx1p/YhF+R7tRCv0aQOia3KQhIkPR2PL45xst9NCURrzMXPoVqI0oVFZ1To6tHwSwCeJg0QuXo7HyYuAdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
@@ -25,14 +24,10 @@ if (!is_null($events['events'])) {
 					'originalContentUrl' => 'https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/23695_pets_vertical_store_dogs_small_tile_8._CB312176604_.jpg',
 					'previewImageUrl'=> 'https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/23695_pets_vertical_store_dogs_small_tile_8._CB312176604_.jpg'
 				];
-				$messages2 = [
-					'type' => 'text',
-					'text' => $reply
-				];
 			}
 			else if (strtolower($text) == 'version')
 			{
-				$reply = 'version 0.5';
+				$reply = 'version 0.6, 13 Nov 2016';
 				$messages = [
 					'type' => 'text',
 					'text' => $reply
@@ -52,7 +47,7 @@ if (!is_null($events['events'])) {
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
 				'replyToken' => $replyToken,
-				'messages' => [$messages,$messages2],
+				'messages' => [$messages],
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
