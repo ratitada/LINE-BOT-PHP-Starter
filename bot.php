@@ -17,16 +17,12 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
-			if ($text == strtolower('cpu')) {
+			if ($text == 'cpu') {
 				$reply = 'cpu\'s status';
 				$messages = [					
 					'type' => 'image',
 					'originalContentUrl' => 'https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/23695_pets_vertical_store_dogs_small_tile_8._CB312176604_.jpg',
 					'previewImageUrl'=> 'https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/23695_pets_vertical_store_dogs_small_tile_8._CB312176604_.jpg'
-				];
-				$messages2 = [
-					'type' => 'text',
-					'text' => $reply
 				];
 			}
 
@@ -43,7 +39,7 @@ if (!is_null($events['events'])) {
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
 				'replyToken' => $replyToken,
-				'messages' => [$messages],[$messages2]
+				'messages' => [$messages],
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
