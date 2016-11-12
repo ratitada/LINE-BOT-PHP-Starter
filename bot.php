@@ -19,14 +19,27 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			if ($text == 'cpu') {
 				$reply = 'cpu\'s status';
+				$messages = [
+					{
+						'type' => 'text',
+						'text' => $reply
+					},
+					{
+						'type' => 'image',
+						'originalContentUrl' => 'https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/23695_pets_vertical_store_dogs_small_tile_8._CB312176604_.jpg',
+						'previewImageUrl'=> 'https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/23695_pets_vertical_store_dogs_small_tile_8._CB312176604_.jpg'
+					}
+				];
 			}
+
 			else {
 				$reply = $text;
+				$messages = [
+					'type' => 'text',
+					'text' => $reply
+				];
 			}
-			$messages = [
-				'type' => 'text',
-				'text' => $reply
-			];
+			
 
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
